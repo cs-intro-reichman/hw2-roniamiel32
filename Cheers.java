@@ -1,7 +1,7 @@
 
 public class Cheers {
         public static void main(String[] args) {
-                String Cheer = args[0];
+                String Cheer = args[0].toUpperCase() ;
                 int printCount = Integer.parseInt(args[1]);
                 String specialLetters = "AaEeFfHhIiLlMmNnOoRrSsXx";
                 for (int i = 0; i < Cheer.length(); i++) {
