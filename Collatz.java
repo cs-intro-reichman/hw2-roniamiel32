@@ -1,16 +1,14 @@
 public class Collatz {
     public static void main(String[] args) {
-        int totalNumbers = Integer.parseInt(args[0]);
-        String outputMode = args[1];  
+        int seed = Integer.parseInt(args[0]);
+        String mode = args[1];  
         int currentNumber = 2;
         int count = 1;
         int startingNumber = 0;
-
-        for (int i = 0; i < totalNumbers; i++) {
+        for (int i = 0; i < seed; i++) {
             startingNumber = i + 1;  
-            if (outputMode.equals("v")) {
+            if (mode.equals("v")) {
                 System.out.print(startingNumber + " ");
-
                 while (currentNumber > 1) {
                     if (startingNumber % 2 == 0) {
                         startingNumber = startingNumber / 2;  
@@ -27,13 +25,11 @@ public class Collatz {
                 System.out.print("(" + count + ")");
                 System.out.println();
             } else {    
-                i = totalNumbers + 1;
+                i = seed + 1;
             }
             count = 1;
             currentNumber = 2;
         }
-
-       
-        System.out.println("Every one of the first " + totalNumbers + " hailstone sequences reached 1.");
+        System.out.println("Every one of the first " + seed + " hailstone sequences reached 1.");
     }
 }
