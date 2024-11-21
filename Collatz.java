@@ -1,31 +1,39 @@
 public class Collatz {
-    public static void main(String args[]) {
-        int seedN = Integer.parseInt(args[0]);
-        String mode = args[1];
-        
-        for (int seed = 1; seed <= seedN; seed++) {
-            String sequence = "";  
-            int current = seed;
-            int count = 1;
-            
-            sequence += current; 
-            
-            while (current != 1) {
-                if (current % 2 == 0) {
-                    current = current / 2;
-                } else {
-                    current = (current * 3) + 1;
+    public static void main(String[] args) {
+        int totalNumbers = Integer.parseInt(args[0]);
+        String outputMode = args[1];  
+        int currentNumber = 2;
+        int count = 1;
+        int startingNumber = 0;
+
+        for (int i = 0; i < totalNumbers; i++) {
+            startingNumber = i + 1;  
+            if (outputMode.equals("v")) {
+                System.out.print(startingNumber + " ");
+
+                while (currentNumber > 1) {
+                    if (startingNumber % 2 == 0) {
+                        startingNumber = startingNumber / 2;  
+                        System.out.print(startingNumber + " ");
+                        currentNumber = startingNumber;
+                        count++;
+                    } else {
+                        startingNumber = (startingNumber * 3) + 1;  
+                        System.out.print(startingNumber + " ");
+                        currentNumber = startingNumber;
+                        count++;
+                    }
                 }
-                sequence += " " + current;  
-                count++;
+                System.out.print("(" + count + ")");
+                System.out.println();
+            } else {    
+                i = totalNumbers + 1;
             }
-            
-            
-            if (mode.equals("v")) {
-                System.out.println(sequence + " (" + count + ")");
-            } else if (mode.equals("c")) {
-                System.out.println("Every one of the first " + seedN + " hailstone sequences reached 1.");
-            }
+            count = 1;
+            currentNumber = 2;
         }
+
+       
+        System.out.println("Every one of the first " + totalNumbers + " hailstone sequences reached 1.");
     }
 }
