@@ -8,7 +8,7 @@ public  class  Cheers {
       char currentLetter = cheer.charAt(i);
       char upperLetter = (currentLetter >= 'a' && currentLetter <= 'z') ? (char) (currentLetter - 32) : currentLetter;
       String rule = (specialLetters.indexOf(upperLetter) >= 0) ? "an " : "a  ";
-      System.out.println("Give me " + rule + currentLetter + ": " + currentLetter + "!");
+      System.out.println("Give me " + rule + upperLetter + ": " + upperLetter + "!");
         }
       System.out.println("What does that spell?");
       for (int i = 0; i < printCount; i++) {
